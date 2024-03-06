@@ -143,8 +143,8 @@ class RAGxplorer(BaseModel):
             self._query.original_query_projection = get_projections(embedding=[self._chosen_embedding_model(self._query.original_query)],
                                                                     umap_transform=self._projector)
 
-        self._VizData.query_df = pd.DataFrame({"x": [self._query.original_query_projection[0][0]],
-                                      "y": [self._query.original_query_projection[1][0]],
+        self._VizData.query_df = pd.DataFrame({"x": [self._query.original_query_projection[0][0][0]],
+                                      "y": [self._query.original_query_projection[1][0][0]],
                                       "document_cleaned": query,
                                       "category": "Original Query",
                                       "size": query_shape_size})
